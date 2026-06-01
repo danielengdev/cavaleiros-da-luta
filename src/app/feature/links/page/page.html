@@ -1,0 +1,72 @@
+<section class="lm-wrapper">
+  <header class="lm-header">
+    <div class="lm-logo-wrap">
+      @if (logoDisponivel()) {
+        <img
+          class="lm-logo"
+          ngSrc="/assets/img/cavaleiros-da-luta-logotipo.jpeg"
+          width="180"
+          height="180"
+          alt="Logotipo da A.R.L.S. Cavaleiros da Luta"
+          priority
+          (error)="onLogoError()"
+        />
+      } @else {
+        <div class="lm-emblem" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none">
+            <path d="M32 6 L58 52 H6 Z" stroke="currentColor" stroke-width="2"/>
+            <path d="M32 58 L6 12 H58 Z" stroke="currentColor" stroke-width="2"/>
+            <text x="32" y="38" text-anchor="middle" font-family="Georgia, serif"
+                  font-size="16" fill="currentColor">G</text>
+          </svg>
+        </div>
+      }
+    </div>
+    <h2>Links Maçônicos</h2>
+    <p class="lm-subtitle">Cavaleiros da Luta</p>
+  </header>
+
+  @if (loading()) {
+    <div class="lm-loading" role="status" aria-live="polite" aria-busy="true">
+      <span class="lm-loading__spinner" aria-hidden="true"></span>
+      <p class="lm-loading__text">Carregando links do Supabase...</p>
+    </div>
+  } @else {
+    <ul class="lm-list">
+      @for (item of links(); track item.id ?? item.link) {
+        <li class="lm-card">
+          <details class="lm-accordion">
+            <summary class="lm-accordion__summary">
+              <a
+                [href]="item.link"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="lm-open-btn"
+                aria-label="Abrir link em nova aba"
+                title="Abrir link"
+                (click)="$event.stopPropagation()"
+              >
+                <svg class="lm-open-btn__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M14 5h5v5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M10 14L19 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M19 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span class="lm-sr-only">Abrir</span>
+              </a>
+              <span class="lm-accordion__link">{{ extrairDominio(item.link) }}</span>
+              <span class="lm-accordion__chevron" aria-hidden="true">▾</span>
+            </summary>
+
+            <div class="lm-accordion__content">
+              <p class="lm-card__desc">{{ item.descricao || 'Sem descrição disponível.' }}</p>
+            </div>
+          </details>
+        </li>
+      }
+    </ul>
+
+    @if (!links().length) {
+      <p class="lm-empty">Nenhum link disponível.</p>
+    }
+  }
+</section>
