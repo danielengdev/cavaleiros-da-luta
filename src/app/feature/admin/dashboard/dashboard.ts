@@ -24,6 +24,10 @@ export class Dashboard {
     this.activeSection.set(section);
   }
 
+  backToHome() {
+    this.activeSection.set('home');
+  }
+
   async logout(): Promise<void> {
     const { error } = await this.authService.logout();
 

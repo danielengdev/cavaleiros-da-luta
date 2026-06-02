@@ -3,7 +3,8 @@ import {
   ChangeDetectionStrategy,
   inject,
   signal,
-  OnInit
+  OnInit,
+  output
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LinksMgmtService, LinkItem } from './service/links-management.service';
@@ -27,6 +28,7 @@ export class LinksMgmtComponent implements OnInit {
   readonly showForm = signal(false);
   readonly editingLink = signal<LinkItem | null>(null);
   readonly errorMessage = signal('');
+  readonly backToDashboard = output<void>();
 
   ngOnInit() {
     this.loadLinks();
@@ -74,6 +76,11 @@ export class LinksMgmtComponent implements OnInit {
   onFormClosed() {
     this.showForm.set(false);
     this.editingLink.set(null);
+  }
+
+  returnToDashboard() {
+    this.onFormClosed();
+    this.backToDashboard.emit();
   }
 
   onDeleteLink(id: number) {

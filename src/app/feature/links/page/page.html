@@ -23,7 +23,14 @@
       }
     </div>
     <h2>Links Maçônicos</h2>
-    <p class="lm-subtitle">Cavaleiros da Luta</p>
+    <a class="lm-login-link" routerLink="/login" aria-label="Ir para a tela de login" title="Login">
+      <span class="lm-login-link__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M4 20a8 8 0 0 1 16 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </span>
+    </a>
   </header>
 
   @if (loading()) {

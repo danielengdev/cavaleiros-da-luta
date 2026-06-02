@@ -60,11 +60,43 @@
     color: #2d6483;
     text-shadow: 0 1px 0 rgba(255,255,255,0.65);
   }
-  .lm-subtitle {
-    margin-top: 0.5rem;
-    color: #4d7389;
-    font-style: italic;
-    letter-spacing: 0.05em;
+
+  .lm-login-link {
+    width: fit-content;
+    margin: 0.85rem auto 0;
+    padding: 0.35rem;
+    display: inline-flex;
+    align-items: center;
+    color: #2d6483;
+    text-decoration: none;
+    border-radius: 999px;
+    border: 1px solid rgba(77,149,190,0.28);
+    background: linear-gradient(160deg, rgba(255,255,255,0.92), rgba(238,245,223,0.9));
+    box-shadow: 0 10px 24px rgba(33,67,87,0.1);
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, color .2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(33,67,87,0.16);
+      border-color: var(--lm-gold-soft);
+      color: #214357;
+    }
+  }
+
+  .lm-login-link__icon {
+    width: 2rem;
+    height: 2rem;
+    display: inline-grid;
+    place-items: center;
+    border-radius: 999px;
+    background: linear-gradient(160deg, #4a9ec8, #2d6483);
+    color: #ffffff;
+    box-shadow: 0 6px 16px rgba(33,67,87,0.18);
+
+    svg {
+      width: 1rem;
+      height: 1rem;
+    }
   }
 }
 

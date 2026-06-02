@@ -1,6 +1,7 @@
 import {
   Component,
   ChangeDetectionStrategy,
+  effect,
   inject,
   signal,
   input,
@@ -40,6 +41,25 @@ export class LinkFormComponent {
   readonly loading = signal(false);
   readonly errorMessage = signal('');
 
+  constructor() {
+    effect(() => {
+      const currentLink = this.editingLink();
+
+      if (currentLink) {
+        this.form.reset({
+          link: currentLink.link,
+          descricao: currentLink.descricao || ''
+        });
+        return;
+      }
+
+      this.form.reset({
+        link: '',
+        descricao: ''
+      });
+    });
+  }
+
   async submit() {
     if (this.form.invalid) {
       return;
@@ -62,7 +82,6 @@ export class LinkFormComponent {
       }
 
       this.linkSaved.emit(savedLink);
-      this.form.reset();
     } catch (error: any) {
       this.errorMessage.set(error.message || 'Erro ao salvar link');
     } finally {
