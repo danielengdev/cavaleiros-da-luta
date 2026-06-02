@@ -1,0 +1,42 @@
+<section class="auth-wrapper">
+  <div class="auth-card">
+    <header class="auth-header">
+      <h2>Criar Conta</h2>
+      <p>Cadastre-se para acessar o painel administrativo.</p>
+    </header>
+
+    <form class="auth-form" [formGroup]="form" (ngSubmit)="register()">
+      <div class="auth-field">
+        <label for="register-email">Email</label>
+        <input id="register-email" type="email" formControlName="email" autocomplete="email" />
+      </div>
+
+      <div class="auth-field">
+        <label for="register-password">Senha</label>
+        <input id="register-password" type="password" formControlName="password" autocomplete="new-password" />
+      </div>
+
+      <div class="auth-field">
+        <label for="register-confirm">Confirmar Senha</label>
+        <input id="register-confirm" type="password" formControlName="confirmPassword" autocomplete="new-password" />
+      </div>
+
+      <button class="auth-submit" type="submit" [disabled]="loading">
+        {{ loading ? 'Cadastrando...' : 'Cadastrar' }}
+      </button>
+
+      <p class="auth-success" *ngIf="success" role="status">
+        {{ success }}
+      </p>
+
+      <p class="auth-error" *ngIf="error" role="alert">
+        {{ error }}
+      </p>
+    </form>
+
+    <nav class="auth-links" aria-label="Navegacao de autenticacao">
+      <a routerLink="/login">Ja tenho conta</a>
+      <a routerLink="/forgot-password">Esqueci minha senha</a>
+    </nav>
+  </div>
+</section>
