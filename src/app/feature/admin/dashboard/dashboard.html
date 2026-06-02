@@ -1,10 +1,61 @@
-<section class="dash-wrapper">
-	<div class="dash-card">
-		<h2>Painel Administrativo</h2>
-		<p>Voce esta autenticado.</p>
+<div class="dash-container">
+  <nav class="dash-nav">
+    <div class="dash-nav__header">
+      <h1>Admin Panel</h1>
+    </div>
 
-		<button class="dash-logout" type="button" (click)="logout()">
-			Sair
-		</button>
-	</div>
-</section>
+    <ul class="dash-nav__menu">
+      <li>
+        <button
+          class="dash-nav__link"
+          [class.dash-nav__link--active]="activeSection() === 'home'"
+          (click)="setSection('home')"
+        >
+          🏠 Home
+        </button>
+      </li>
+      <li>
+        <button
+          class="dash-nav__link"
+          [class.dash-nav__link--active]="activeSection() === 'links'"
+          (click)="setSection('links')"
+        >
+          🔗 Gerenciar Links
+        </button>
+      </li>
+    </ul>
+
+    <button class="dash-nav__logout" (click)="logout()">
+      🚪 Sair
+    </button>
+  </nav>
+
+  <main class="dash-content">
+    @if (activeSection() === 'home') {
+      <section class="dash-section">
+        <div class="dash-card">
+          <h2>Bem-vindo ao Painel Administrativo</h2>
+          <p>Você está autenticado como usuário administrador.</p>
+
+          <div class="dash-features">
+            <div class="dash-feature">
+              <h3>🔗 Gerenciar Links</h3>
+              <p>Crie, edite e delete links da plataforma.</p>
+              <button
+                class="dash-feature__btn"
+                (click)="setSection('links')"
+              >
+                Ir para Gerenciamento
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    }
+
+    @if (activeSection() === 'links') {
+      <app-links-management />
+    }
+  </main>
+</div>
+

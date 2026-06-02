@@ -1,0 +1,58 @@
+<form [formGroup]="form" (ngSubmit)="submit()" class="lm-form">
+  <div class="lm-form__group">
+    <label for="link" class="lm-form__label">URL do Link</label>
+    <input
+      id="link"
+      type="url"
+      formControlName="link"
+      class="lm-form__input"
+      placeholder="https://exemplo.com"
+      required
+    />
+    @if (form.get('link')?.hasError('required') && form.get('link')?.touched) {
+      <span class="lm-form__error">Link é obrigatório</span>
+    }
+    @if (form.get('link')?.hasError('pattern') && form.get('link')?.touched) {
+      <span class="lm-form__error">Link deve começar com http:// ou https://</span>
+    }
+  </div>
+
+  <div class="lm-form__group">
+    <label for="descricao" class="lm-form__label">Descrição</label>
+    <textarea
+      id="descricao"
+      formControlName="descricao"
+      class="lm-form__textarea"
+      placeholder="Descrição do link (opcional)"
+      rows="4"
+    ></textarea>
+  </div>
+
+  @if (errorMessage()) {
+    <div class="lm-form__error-message">
+      {{ errorMessage() }}
+    </div>
+  }
+
+  <div class="lm-form__actions">
+    <button
+      type="submit"
+      class="lm-form__button lm-form__button--primary"
+      [disabled]="form.invalid || loading()"
+    >
+      @if (loading()) {
+        <span>Salvando...</span>
+      } @else {
+        <span>{{ editingLink() ? 'Atualizar' : 'Criar' }} Link</span>
+      }
+    </button>
+    <button
+      type="button"
+      class="lm-form__button lm-form__button--secondary"
+      (click)="cancel()"
+      [disabled]="loading()"
+    >
+      Cancelar
+    </button>
+  </div>
+</form>

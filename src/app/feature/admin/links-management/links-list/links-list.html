@@ -1,0 +1,70 @@
+<div class="lm-list">
+  @if (links().length === 0) {
+    <div class="lm-list__empty">
+      <p>Nenhum link cadastrado.</p>
+    </div>
+  } @else {
+    <div class="lm-list__header">
+      <h3>Links Cadastrados</h3>
+      <span class="lm-list__count">{{ links().length }}</span>
+    </div>
+
+    <div class="lm-list__items">
+      @for (link of links(); track link.id) {
+        <div class="lm-list__item">
+          <div class="lm-list__item-content">
+            <div class="lm-list__item-header">
+              <span class="lm-list__domain">{{ extrairDominio(link.link) }}</span>
+              @if (link.created_at) {
+                <span class="lm-list__date">
+                  {{ link.created_at | date: 'dd/MM/yyyy HH:mm' }}
+                </span>
+              }
+            </div>
+
+            <div class="lm-list__item-url">
+              <a [href]="link.link" target="_blank" rel="noopener noreferrer">
+                {{ link.link }}
+              </a>
+            </div>
+
+            @if (link.descricao) {
+              <div class="lm-list__item-description">
+                {{ link.descricao }}
+              </div>
+            }
+          </div>
+
+          <div class="lm-list__item-actions">
+            <button
+              class="lm-list__button lm-list__button--edit"
+              (click)="onEdit(link)"
+              [disabled]="loading()"
+              title="Editar link"
+            >
+              ✎
+            </button>
+            <button
+              class="lm-list__button lm-list__button--delete"
+              (click)="onDelete(link.id!)"
+              [disabled]="loading() || deletingId() === link.id"
+              title="Deletar link"
+            >
+              @if (deletingId() === link.id) {
+                <span>⋯</span>
+              } @else {
+                <span>🗑</span>
+              }
+            </button>
+          </div>
+        </div>
+      }
+    </div>
+  }
+
+  @if (deleteError()) {
+    <div class="lm-list__error">
+      {{ deleteError() }}
+    </div>
+  }
+</div>

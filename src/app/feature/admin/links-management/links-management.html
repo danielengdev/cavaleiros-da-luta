@@ -1,0 +1,43 @@
+<div class="lm-mgmt">
+  <div class="lm-mgmt__header">
+    <h2>Gerenciar Links</h2>
+    <button
+      class="lm-mgmt__btn-create"
+      (click)="openCreateForm()"
+      [disabled]="loading()"
+    >
+      + Novo Link
+    </button>
+  </div>
+
+  @if (errorMessage()) {
+    <div class="lm-mgmt__error">
+      {{ errorMessage() }}
+    </div>
+  }
+
+  @if (loading()) {
+    <div class="lm-mgmt__loading">
+      <div class="lm-mgmt__spinner"></div>
+      <p>Carregando links...</p>
+    </div>
+  }
+
+  @if (showForm()) {
+    <div class="lm-mgmt__form-container">
+      <h3>{{ editingLink() ? 'Editar Link' : 'Criar Novo Link' }}</h3>
+      <app-link-form
+        [editingLink]="editingLink()"
+        (linkSaved)="onLinkSaved($event)"
+        (formClosed)="onFormClosed()"
+      />
+    </div>
+  }
+
+  <app-links-list
+    [links]="links()"
+    [loading]="loading()"
+    (editLink)="onEditLink($event)"
+    (deleteLink)="onDeleteLink($event)"
+  />
+</div>
