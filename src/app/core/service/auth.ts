@@ -65,4 +65,15 @@ export class Auth {
 
     return data.session;
   }
+
+  async isAdmin(): Promise<boolean> {
+    const user = await this.getUser();
+
+    if (!user) {
+      return false;
+    }
+
+    const role = (user.user_metadata?.['role'] as string) || '';
+    return role === 'admin';
+  }
 }

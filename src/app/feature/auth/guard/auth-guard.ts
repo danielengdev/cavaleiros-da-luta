@@ -10,7 +10,13 @@ export const authGuard: CanActivateFn = async () => {
   const session =
     await authService.getSession();
 
-  if (session) {
+  if (!session) {
+    return router.parseUrl('/login');
+  }
+
+  const isAdmin = await authService.isAdmin();
+
+  if (isAdmin) {
     return true;
   }
 
