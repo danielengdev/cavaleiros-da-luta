@@ -6,6 +6,7 @@ export type UserSummary = {
 
 export type CarouselSlide = {
   id: string;
+  icon: 'temple' | 'compass' | 'bell';
   eyebrow: string;
   title: string;
   description: string;

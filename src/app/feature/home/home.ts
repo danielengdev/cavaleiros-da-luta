@@ -22,24 +22,27 @@ export class Home {
   readonly slides = signal<CarouselSlide[]>([
     {
       id: 'vida-digital',
-      eyebrow: 'Comunicado em destaque',
-      title: 'Sua vida digital passa por aqui.',
-      description: 'Acesse servicos, atualizacoes e atalhos principais em um unico lugar.',
+      icon: 'temple',
+      eyebrow: 'Mensagem do oriente',
+      title: 'O templo agora tambem e digital.',
+      description: 'Acompanhe comunicados e orientacoes da loja em um unico ambiente.',
       actionLabel: 'Saiba mais',
     },
     {
       id: 'servicos-digitais',
-      eyebrow: 'Servicos online',
-      title: 'Tudo o que voce usa com menos etapas.',
-      description: 'Consulte informacoes, encontre servicos e acompanhe novidades da plataforma.',
+      icon: 'compass',
+      eyebrow: 'Vida em loja',
+      title: 'Irmandade e agenda reunidas com clareza.',
+      description: 'Consulte links, avisos e recursos da caminhada maconica.',
       actionLabel: 'Explorar',
     },
     {
       id: 'notificacoes',
-      eyebrow: 'Alertas',
-      title: 'Atualizacoes importantes sempre visiveis.',
-      description: 'Receba avisos relevantes e acompanhe o que mudou diretamente pela Home.',
-      actionLabel: 'Ver alertas',
+      icon: 'bell',
+      eyebrow: 'Avisos da oficina',
+      title: 'Os avisos mais importantes ficam a vista.',
+      description: 'Receba lembretes de reunioes, eventos e comunicados da ordem.',
+      actionLabel: 'Ver avisos',
     },
   ]);
 

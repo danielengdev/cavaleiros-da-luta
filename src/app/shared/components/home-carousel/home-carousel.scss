@@ -121,6 +121,21 @@
   gap: 0.6rem;
 }
 
+.home-carousel__copy-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+}
+
+.home-carousel__copy-icon svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
 .home-carousel__eyebrow,
 .home-carousel__description {
   margin: 0;
@@ -254,6 +269,16 @@
   .home-carousel__copy {
     gap: 0.35rem;
     padding: 0;
+  }
+
+  .home-carousel__copy-icon {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  .home-carousel__copy-icon svg {
+    width: 1rem;
+    height: 1rem;
   }
 
   .home-carousel__eyebrow {

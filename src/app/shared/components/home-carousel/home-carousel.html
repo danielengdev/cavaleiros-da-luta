@@ -9,6 +9,36 @@
       </div>
 
       <div class="home-carousel__copy">
+        <span class="home-carousel__copy-icon" aria-hidden="true">
+          @switch (slide.icon) {
+            @case ('temple') {
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M3 10h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M5 10v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M9 10v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M15 10v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M19 10v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M2 20h20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="m4 10 8-6 8 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            }
+            @case ('compass') {
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 4v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="m8 20 4-8 4 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M7 20h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M7.5 8.5A6.5 6.5 0 0 1 12 7a6.5 6.5 0 0 1 4.5 1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            }
+            @case ('bell') {
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M6 16v-4a6 6 0 1 1 12 0v4" stroke="currentColor" stroke-width="2"/>
+                <path d="M4 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M10 19a2 2 0 0 0 4 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            }
+          }
+        </span>
         <p class="home-carousel__eyebrow">{{ slide.eyebrow }}</p>
         <h2 class="home-carousel__title">{{ slide.title }}</h2>
         <p class="home-carousel__description">{{ slide.description }}</p>
