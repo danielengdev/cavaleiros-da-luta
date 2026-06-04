@@ -1,0 +1,24 @@
+<header class="top-bar">
+  <a class="top-bar__icon-button" [routerLink]="menuRoute()" aria-label="Abrir menu principal">
+    <span class="top-bar__burger" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+  </a>
+
+  <div class="top-bar__content">
+    <img
+      class="top-bar__logo"
+      [ngSrc]="logoSrc()"
+      width="48"
+      height="20"
+      alt="Cavaleiros da Luta"
+    />
+    <h1 class="top-bar__name">{{ userName() }}</h1>
+  </div>
+
+  <a class="top-bar__avatar-button" [routerLink]="profileRoute()" aria-label="Abrir perfil do usuario">
+    <app-profile-avatar [name]="userName()" [imageSrc]="avatarSrc()" />
+  </a>
+</header>

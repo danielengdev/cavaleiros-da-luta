@@ -1,0 +1,35 @@
+<header class="feature-header" [class.feature-header--centered]="centered()">
+  @if (backRoute() || actionRoute()) {
+    <div class="feature-header__top-row">
+      @if (backRoute(); as route) {
+        <a class="feature-header__back" [routerLink]="route">{{ backLabel() }}</a>
+      } @else {
+        <span aria-hidden="true"></span>
+      }
+
+      @if (actionRoute(); as route) {
+        <a
+          class="feature-header__action"
+          [routerLink]="route"
+          [attr.aria-label]="actionAriaLabel()"
+          [attr.title]="actionTitle() || actionAriaLabel()"
+        >
+          <span class="feature-header__action-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M4 20a8 8 0 0 1 16 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+        </a>
+      }
+    </div>
+  }
+
+  <div class="feature-header__content">
+    <h1 class="feature-header__title">{{ title() }}</h1>
+
+    @if (description()) {
+      <p class="feature-header__description">{{ description() }}</p>
+    }
+  </div>
+</header>

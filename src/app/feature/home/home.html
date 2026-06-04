@@ -1,0 +1,17 @@
+<section class="home-shell">
+  <app-top-bar
+    [greeting]="user().greeting"
+    [userName]="user().name"
+    [avatarSrc]="user().avatarUrl ?? ''"
+    menuRoute="/menu"
+    profileRoute="/profile"
+  />
+
+  <main class="home-content">
+    <app-current-date [label]="currentDateLabel()" />
+    <app-home-carousel [slides]="slides()" />
+    <app-services-section [services]="services()" />
+  </main>
+
+  <app-home-bottom-nav activeItem="home" [unreadCount]="unreadCount()" />
+</section>

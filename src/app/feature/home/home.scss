@@ -1,0 +1,32 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f5f6fb 0%, #f1f3f8 100%);
+  color: #111317;
+  font-family: 'Trebuchet MS', 'Segoe UI Variable Text', 'Segoe UI', sans-serif;
+}
+
+.home-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.home-content {
+  display: grid;
+  gap: 1.7rem;
+  padding: 5.45rem 1rem 6rem;
+}
+
+.home-content app-current-date {
+  margin-bottom: -0.8rem;
+}
+
+@media (min-width: 768px) {
+  .home-content {
+    max-width: 48rem;
+    width: 100%;
+    margin: 0 auto;
+    padding-inline: 1.5rem;
+  }
+}

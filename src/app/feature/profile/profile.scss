@@ -1,0 +1,40 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: #f5f6fb;
+  font-family: 'Trebuchet MS', 'Segoe UI Variable Text', 'Segoe UI', sans-serif;
+}
+
+.simple-screen {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+.simple-screen__body {
+  max-width: 44rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 6rem;
+}
+
+.simple-screen__subtitle {
+  margin: 0;
+  font-size: 1.3rem;
+  letter-spacing: -0.02em;
+}
+
+.simple-screen__text {
+  margin: 0;
+  color: #5e6373;
+  line-height: 1.5;
+}
+
+.simple-screen__panel {
+  display: grid;
+  gap: 0.6rem;
+  padding: 1rem 1.1rem;
+  border-radius: 1rem;
+  background: #ffffff;
+  box-shadow: 0 10px 24px rgba(17, 26, 52, 0.1);
+}

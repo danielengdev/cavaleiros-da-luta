@@ -1,0 +1,35 @@
+<section class="home-carousel" aria-label="Destaques da home">
+  @if (activeSlide(); as slide) {
+    <article class="home-carousel__card">
+      <div class="home-carousel__art" aria-hidden="true">
+        <div class="home-carousel__sofa"></div>
+        <div class="home-carousel__person"></div>
+        <span class="home-carousel__cloud home-carousel__cloud--left"></span>
+        <span class="home-carousel__cloud home-carousel__cloud--right"></span>
+      </div>
+
+      <div class="home-carousel__copy">
+        <p class="home-carousel__eyebrow">{{ slide.eyebrow }}</p>
+        <h2 class="home-carousel__title">{{ slide.title }}</h2>
+        <p class="home-carousel__description">{{ slide.description }}</p>
+        @if (slide.actionLabel) {
+          <button class="home-carousel__action" type="button">{{ slide.actionLabel }}</button>
+        }
+      </div>
+    </article>
+  }
+
+  <div class="home-carousel__indicators" role="tablist" aria-label="Selecionar banner">
+    @for (slide of slides(); track slide.id; let index = $index) {
+      <button
+        class="home-carousel__indicator"
+        type="button"
+        role="tab"
+        [class.home-carousel__indicator--active]="index === activeIndex()"
+        [attr.aria-selected]="index === activeIndex()"
+        [attr.aria-label]="'Exibir banner ' + (index + 1)"
+        (click)="selectSlide(index)"
+      ></button>
+    }
+  </div>
+</section>

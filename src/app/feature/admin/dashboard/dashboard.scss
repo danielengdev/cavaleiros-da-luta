@@ -1,22 +1,22 @@
 :host {
-  --lm-bg: #f6f2e6;
-  --lm-bg-soft: #eef5df;
-  --lm-border: #4d95be;
-  --lm-gold: #b28a3d;
-  --lm-text: #214357;
-  --lm-muted: #4f758b;
-  --lm-sky: #58a9d3;
-  --lm-card-bg: #fefdf8;
+  --lm-bg: #f5f6fb;
+  --lm-bg-soft: #eef3fb;
+  --lm-border: rgba(28, 86, 196, 0.18);
+  --lm-gold: #1c56c4;
+  --lm-text: #111317;
+  --lm-muted: #5e6373;
+  --lm-sky: #4c83ea;
+  --lm-card-bg: #ffffff;
 
   display: block;
   min-height: 100vh;
   background:
-    radial-gradient(circle at 15% 5%, rgba(88, 169, 211, 0.22), transparent 54%),
-    radial-gradient(circle at 85% 95%, rgba(178, 138, 61, 0.2), transparent 58%),
-    linear-gradient(165deg, #f8f4e9 0%, #eaf4e7 48%, #e7f2f8 100%),
+    radial-gradient(circle at 15% 5%, rgba(28, 86, 196, 0.12), transparent 48%),
+    radial-gradient(circle at 85% 95%, rgba(76, 131, 234, 0.12), transparent 52%),
+    linear-gradient(180deg, #f5f6fb 0%, #f1f3f8 100%),
     var(--lm-bg);
   color: var(--lm-text);
-  font-family: 'Georgia', 'Times New Roman', serif;
+  font-family: 'Trebuchet MS', 'Segoe UI Variable Text', 'Segoe UI', sans-serif;
 }
 
 .dash-container {
@@ -40,16 +40,16 @@
 }
 
 .dash-card {
-  background: linear-gradient(160deg, var(--lm-card-bg), var(--lm-bg-soft));
+  background: linear-gradient(180deg, var(--lm-card-bg), #f8faff);
   border: 1px solid var(--lm-border);
-  border-radius: 10px;
-  box-shadow: 0 16px 30px rgba(33, 67, 87, 0.16), 0 0 0 1px rgba(77, 149, 190, 0.18);
+  border-radius: 1rem;
+  box-shadow: 0 14px 28px rgba(17, 26, 52, 0.12), 0 0 0 1px rgba(28, 86, 196, 0.12);
   padding: 2rem;
 
   h2 {
     margin: 0 0 1rem 0;
-    color: #2d6483;
-    letter-spacing: 0.06em;
+    color: #111317;
+    letter-spacing: -0.03em;
     font-size: 1.5rem;
   }
 
@@ -68,8 +68,8 @@
 .dash-logout {
   padding: 0.75rem 1.25rem;
   border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 0.375rem;
-  background: linear-gradient(160deg, #4a9ec8, #2d6483);
+  border-radius: 999px;
+  background: linear-gradient(160deg, #2a66d9, #1c56c4);
   color: white;
   font-weight: 600;
   font-size: 0.95rem;
@@ -78,7 +78,7 @@
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(74, 158, 200, 0.3);
+    box-shadow: 0 8px 18px rgba(28, 86, 196, 0.22);
   }
 }
 
@@ -91,14 +91,14 @@
 
 .dash-feature {
   padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.6);
+  background: linear-gradient(180deg, #ffffff, #f8faff);
   border: 1px solid var(--lm-border);
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   transition: all 0.2s ease;
 
   &:hover {
     border-color: var(--lm-sky);
-    box-shadow: 0 8px 16px rgba(88, 169, 211, 0.15);
+    box-shadow: 0 12px 22px rgba(17, 26, 52, 0.1);
     transform: translateY(-2px);
   }
 
@@ -117,17 +117,17 @@
 
 .dash-feature__btn {
   padding: 0.5rem 1rem;
-  background: linear-gradient(160deg, #4a9ec8, #2d6483);
+  background: linear-gradient(160deg, #2a66d9, #1c56c4);
   color: white;
   border: none;
-  border-radius: 0.375rem;
+  border-radius: 999px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(74, 158, 200, 0.3);
+    box-shadow: 0 8px 18px rgba(28, 86, 196, 0.22);
   }
 }
 

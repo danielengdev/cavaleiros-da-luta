@@ -1,7 +1,8 @@
 import { NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit, inject, signal } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { LinksService } from '../service/links-service';
+import { HomeBottomNav } from '../../../shared/components/home-bottom-nav/home-bottom-nav';
+import { FeatureHeader } from '../../../shared/components/feature-header/feature-header';
 
 type LinkItem = {
   id?: number | string;
@@ -12,7 +13,7 @@ type LinkItem = {
 
 @Component({
   selector: 'app-page',
-  imports: [NgOptimizedImage, RouterLink],
+  imports: [NgOptimizedImage, FeatureHeader, HomeBottomNav],
   templateUrl: './page.html',
   styleUrl: './page.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

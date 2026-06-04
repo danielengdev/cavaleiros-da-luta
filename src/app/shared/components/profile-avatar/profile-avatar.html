@@ -1,0 +1,6 @@
+@if (imageSrc()) {
+  <img class="profile-avatar__image" [src]="imageSrc()" [alt]="name()" />
+} @else {
+  <span class="profile-avatar__initials" aria-hidden="true">{{ initials() }}</span>
+  <span class="profile-avatar__sr">{{ name() }}</span>
+}

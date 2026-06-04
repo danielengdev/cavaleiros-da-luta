@@ -6,12 +6,32 @@ import { ResetPassword } from './feature/auth/reset-password/reset-password';
 import { authGuard } from './feature/auth/guard/auth-guard';
 import { Dashboard } from './feature/admin/dashboard/dashboard';
 import { Page } from './feature/links/page/page';
+import { Home } from './feature/home/home';
+import { Menu } from './feature/menu/menu';
+import { Profile } from './feature/profile/profile';
+import { Notifications } from './feature/notifications/notifications';
 
 export const routes: Routes = [
-    {path: '', redirectTo: 'page', pathMatch: 'full'},
+    {path: '', redirectTo: 'home', pathMatch: 'full'},
+    {
+        path: 'home',
+        component: Home
+    },
     {
         path: 'page',
         component: Page
+    },
+    {
+        path: 'menu',
+        component: Menu
+    },
+    {
+        path: 'profile',
+        component: Profile
+    },
+    {
+        path: 'notifications',
+        component: Notifications
     },
     {
         path: 'login',

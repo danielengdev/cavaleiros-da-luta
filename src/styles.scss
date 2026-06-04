@@ -4,6 +4,15 @@ html,
 body {
 	height: 100%;
 	margin: 0;
+	background: #f5f6fb;
+	color: #111317;
+	font-family: 'Trebuchet MS', 'Segoe UI Variable Text', 'Segoe UI', sans-serif;
+}
+
+body {
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 app-root {
