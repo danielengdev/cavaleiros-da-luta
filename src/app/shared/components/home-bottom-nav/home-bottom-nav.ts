@@ -12,4 +12,5 @@ import { BottomNavItem } from '../../models/home.models';
 export class HomeBottomNav {
   readonly activeItem = input<BottomNavItem | null>(null);
   readonly unreadCount = input<number>(0);
+  readonly muted = input<boolean>(false);
 }

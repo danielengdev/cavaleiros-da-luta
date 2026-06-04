@@ -23,6 +23,11 @@
   backdrop-filter: blur(10px);
 }
 
+.home-bottom-nav--muted {
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 -6px 16px rgba(24, 30, 52, 0.05);
+}
+
 .home-bottom-nav__item {
   position: relative;
   display: grid;
@@ -33,6 +38,10 @@
   padding: 0.35rem 0.2rem;
   color: #989aa3;
   text-decoration: none;
+}
+
+.home-bottom-nav--muted .home-bottom-nav__item {
+  color: #a8acb7;
 }
 
 .home-bottom-nav__item[aria-current='page'],

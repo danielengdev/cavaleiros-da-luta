@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import type { User } from '@supabase/supabase-js';
 import { Supabase } from './supabase';
 
 @Injectable({
@@ -64,6 +65,12 @@ export class Auth {
       await this.supabaseService.client.auth.getSession();
 
     return data.session;
+  }
+
+  onAuthStateChange(callback: (user: User | null) => void) {
+    return this.supabaseService.client.auth.onAuthStateChange((_event, session) => {
+      callback(session?.user ?? null);
+    });
   }
 
   async isAdmin(): Promise<boolean> {

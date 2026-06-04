@@ -1,0 +1,21 @@
+<section class="app-shell">
+  <app-top-bar
+    [greeting]="user()?.greeting ?? 'Ola,'"
+    [userName]="user()?.name ?? ''"
+    [avatarSrc]="user()?.avatarUrl ?? ''"
+    [isAuthenticated]="isAuthenticated()"
+    menuRoute="/menu"
+    profileRoute="/profile"
+    loginRoute="/login"
+  />
+
+  <main class="app-shell__content">
+    <router-outlet />
+  </main>
+
+  <app-home-bottom-nav
+    [activeItem]="activeItem()"
+    [unreadCount]="shellUnreadCount()"
+    [muted]="isAdminRoute()"
+  />
+</section>

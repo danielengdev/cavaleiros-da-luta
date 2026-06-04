@@ -94,6 +94,23 @@
   place-items: center;
 }
 
+.top-bar__guest-avatar {
+  width: 2.35rem;
+  height: 2.35rem;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  background: radial-gradient(circle at top, #ffffff 0%, #edf3ff 55%, #ccdcff 100%);
+  box-shadow: 0 12px 24px rgba(9, 38, 95, 0.22);
+  color: #1a4ca6;
+}
+
+.top-bar__guest-avatar svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
 @media (max-width: 420px) {
   .top-bar {
     gap: 0.35rem;

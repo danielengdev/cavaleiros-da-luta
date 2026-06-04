@@ -30,6 +30,7 @@ Nao inclui:
 - Deve apresentar a aba Inicio como estado ativo por padrao.
 - Deve permitir navegacao para Perfil e Notificacoes pela barra inferior.
 - Deve manter a Home funcional mesmo quando uma feature secundaria falhar.
+- Deve ser carregada dentro da area central do shell principal, mantendo barra superior e barra inferior persistentes.
 
 ## Regras de negocio
 
@@ -40,6 +41,7 @@ Nao inclui:
 ## Estrutura de interface
 
 - barra superior fixa visualmente no topo
+- conteudo principal carregado na regiao central do shell via roteamento
 - data centralizada abaixo do cabecalho
 - carousel principal em destaque
 - secao de servicos com CTA de navegacao estendida
@@ -80,13 +82,14 @@ Nao inclui:
 
 - Esta feature deve ser implementada na camada feature do projeto.
 - A Home deve compor os componentes documentados nos itens 01 a 06, implementados em shared.
-- A responsabilidade desta feature e integrar dados, estados da pagina e navegacao entre blocos.
+- A responsabilidade desta feature e integrar dados e estados do conteudo central, deixando barra superior, barra inferior e roteamento persistente sob responsabilidade do shell principal.
 
 ## Criterios de aceite
 
 - A Home renderiza todas as features definidas nesta pasta.
 - A ordem visual segue a referencia da imagem.
 - A navegacao inferior permite alternar entre Inicio, Perfil e Notificacoes.
+- Ao navegar por links principais, o destino e carregado no centro sem remontar o chrome principal.
 - O layout permanece legivel e funcional em dispositivos moveis.
 
 ## Itens em aberto

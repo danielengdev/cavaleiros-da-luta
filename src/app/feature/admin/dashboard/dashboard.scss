@@ -29,7 +29,7 @@
   width: min(1100px, calc(100vw - 3rem));
   box-sizing: border-box;
   margin: 0 auto;
-  padding: 2rem 1.5rem 3rem;
+  padding: 5.35rem 1.5rem 6rem;
   overflow-y: auto;
 }
 
@@ -134,7 +134,7 @@
 @media (max-width: 768px) {
   .dash-content {
     width: min(1100px, calc(100vw - 2rem));
-    padding: 1.5rem 1rem;
+    padding: 5rem 1rem 6rem;
   }
 }
 

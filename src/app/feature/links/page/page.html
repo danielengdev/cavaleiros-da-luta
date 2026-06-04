@@ -1,28 +1,6 @@
 <section class="lm-shell">
   <div class="lm-shell__body">
     <section class="lm-wrapper">
-      <div class="lm-logo-wrap">
-        @if (logoDisponivel()) {
-          <img
-            class="lm-logo"
-            ngSrc="/assets/img/cavaleiros-da-luta-logotipo.jpeg"
-            width="180"
-            height="180"
-            alt="Logotipo da A.R.L.S. Cavaleiros da Luta"
-            priority
-            (error)="onLogoError()"
-          />
-        } @else {
-          <div class="lm-emblem" aria-hidden="true">
-            <svg viewBox="0 0 64 64" fill="none">
-              <path d="M32 6 L58 52 H6 Z" stroke="currentColor" stroke-width="2"/>
-              <path d="M32 58 L6 12 H58 Z" stroke="currentColor" stroke-width="2"/>
-              <text x="32" y="38" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="currentColor">G</text>
-            </svg>
-          </div>
-        }
-      </div>
-
       <app-feature-header
         title="Links Maçônicos"
         description="Acesse a colecao central de links da plataforma."
@@ -78,6 +56,4 @@
       }
     </section>
   </div>
-
-  <app-home-bottom-nav />
 </section>

@@ -8,6 +8,7 @@
 	--lm-muted: #5e6373;
 	--lm-card-bg: #ffffff;
 
+	box-sizing: border-box;
 	display: block;
 	min-height: 100vh;
 	padding: 3rem 1.25rem;
@@ -27,7 +28,8 @@
 }
 
 .login-shell {
-	width: min(460px, calc(100vw - 3rem));
+	box-sizing: border-box;
+	width: min(100%, 460px);
 	display: flex;
 	flex-direction: column;
 	gap: 0.9rem;
@@ -43,40 +45,14 @@
 	padding: 1.6rem;
 }
 
-.login-back {
-	width: 100%;
-	box-sizing: border-box;
-	margin-bottom: 1rem;
-	display: inline-flex;
-	align-items: center;
-	gap: 0.5rem;
-	padding: 0.65rem 1rem;
-	background: transparent;
-	color: #1c56c4;
-	text-decoration: none;
-	border: 1px solid rgba(28, 86, 196, 0.16);
-	border-radius: 0.375rem;
-	font-weight: 600;
-	transition: all 0.2s ease;
-
-	&:hover {
-		background: rgba(28, 86, 196, 0.08);
-		transform: translateY(-1px);
-	}
-}
-
-.login-back__icon {
-	width: 1.5rem;
-	height: 1.5rem;
-	display: inline-grid;
-	place-items: center;
-	border-radius: 999px;
-	background: rgba(28, 86, 196, 0.12);
-
-	svg {
-		width: 0.95rem;
-		height: 0.95rem;
-	}
+.login-logo {
+	display: block;
+	width: clamp(88px, 28vw, 118px);
+	height: auto;
+	margin: 0 auto 1rem;
+	border-radius: 50%;
+	object-fit: cover;
+	box-shadow: 0 10px 22px rgba(17, 26, 52, 0.14);
 }
 
 .login-header {
@@ -88,11 +64,13 @@
 	margin: 0;
 	color: #111317;
 	letter-spacing: 0.06em;
+	overflow-wrap: anywhere;
 }
 
 .login-header p {
 	margin: 0.45rem 0 0;
 	color: var(--lm-muted);
+	overflow-wrap: anywhere;
 }
 
 .login-form {
@@ -167,10 +145,15 @@
 	margin-top: 1rem;
 }
 
+.login-links > * {
+	min-width: 0;
+}
+
 .login-links a {
 	color: #1c56c4;
 	text-decoration: none;
 	font-size: 0.9rem;
+	overflow-wrap: anywhere;
 }
 
 .login-links a:hover {
@@ -191,12 +174,7 @@
 	}
 
 	.login-shell {
-		width: min(460px, calc(100vw - 2rem));
-	}
-
-	.login-back {
 		width: 100%;
-		justify-content: center;
 	}
 
 	.login-links {

@@ -2,7 +2,7 @@
 
 ## Visao geral
 
-Barra superior da Home responsavel por contextualizar o usuario autenticado e oferecer acesso rapido ao menu lateral e ao perfil.
+Barra superior compartilhada do shell principal responsavel por contextualizar o usuario autenticado e oferecer acesso rapido ao menu lateral e ao perfil.
 
 ## Objetivo
 
@@ -24,11 +24,12 @@ Nao inclui:
 
 ## Requisitos funcionais
 
-- Deve exibir a saudacao fixa "Ola," acima do nome do usuario.
+- Deve permanecer fixa no topo enquanto o conteudo central troca via roteamento.
+- Deve exibir o identificador visual configurado para a organizacao ao lado do nome do usuario.
 - Deve exibir o nome do usuario vindo da feature de perfil.
 - Deve renderizar um avatar clicavel.
 - Deve renderizar um botao de menu clicavel.
-- Deve permanecer visivel no topo da Home.
+- Deve permanecer visivel nas rotas principais que pertencem ao shell da aplicacao.
 
 ## Regras de negocio
 
@@ -41,7 +42,7 @@ Nao inclui:
 
 - container principal com fundo azul e cantos inferiores arredondados
 - area esquerda com botao de menu
-- area central com saudacao e nome
+- area central com identificacao visual e nome
 - area direita com avatar destacado
 
 ## Estilo visual de referencia

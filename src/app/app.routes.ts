@@ -10,48 +10,55 @@ import { Home } from './feature/home/home';
 import { Menu } from './feature/menu/menu';
 import { Profile } from './feature/profile/profile';
 import { Notifications } from './feature/notifications/notifications';
+import { AppShell } from './shared/components/app-shell/app-shell';
 
 export const routes: Routes = [
-    {path: '', redirectTo: 'home', pathMatch: 'full'},
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
     {
-        path: 'home',
-        component: Home
-    },
-    {
-        path: 'page',
-        component: Page
-    },
-    {
-        path: 'menu',
-        component: Menu
-    },
-    {
-        path: 'profile',
-        component: Profile
-    },
-    {
-        path: 'notifications',
-        component: Notifications
+        path: '',
+        component: AppShell,
+        children: [
+            {
+                path: 'home',
+                component: Home,
+            },
+            {
+                path: 'page',
+                component: Page,
+            },
+            {
+                path: 'menu',
+                component: Menu,
+            },
+            {
+                path: 'profile',
+                component: Profile,
+            },
+            {
+                path: 'notifications',
+                component: Notifications,
+            },
+            {
+                path: 'dashboard',
+                canActivate: [authGuard],
+                component: Dashboard,
+            },
+        ],
     },
     {
         path: 'login',
-        component: Login
+        component: Login,
     },
     {
         path: 'register',
-        component: Register
+        component: Register,
     },
     {
         path: 'forgot-password',
-        component: ForgotPassword
+        component: ForgotPassword,
     },
     {
         path: 'reset-password',
-        component: ResetPassword
+        component: ResetPassword,
     },
-    {
-        path: 'dashboard',
-        canActivate: [authGuard],
-        component: Dashboard
-    }
 ];

@@ -9,10 +9,15 @@ Organizar a implementacao dos documentos SDD em uma estrutura coerente com o pro
 - Itens 01 a 06 devem ser implementados em uma pasta shared.
 - Item 07 deve ser implementado em uma pasta feature.
 - A Home deve importar e orquestrar os componentes shared, concentrando apenas composicao, fluxo da tela e integracao entre blocos.
+- O app deve possuir um shell principal com barra superior fixa, barra inferior fixa e `router-outlet` central para carregar as rotas principais.
 
 ## Mapeamento de implementacao
 
 ### Shared
+
+- Shell principal de layout
+  - responsabilidade: manter cabecalho superior, navegacao inferior e regiao central de roteamento persistentes
+  - sugestao de componente: shared/components/app-shell
 
 - 01 Feature barra no topo
   - responsabilidade: cabecalho superior com menu, saudacao, nome e avatar
@@ -48,12 +53,13 @@ Organizar a implementacao dos documentos SDD em uma estrutura coerente com o pro
 ## Ordem recomendada
 
 1. Implementar os modelos e contratos compartilhados de perfil, banner, servico e notificacao.
-2. Implementar os componentes shared mais simples: barra no topo e data.
-3. Implementar carousel com dados mockados e fallback visual.
-4. Implementar secao de servicos e card de servico.
-5. Implementar artefatos compartilhados de perfil e notificacoes para alimentar header e navegacao.
-6. Implementar a feature Home compondo os blocos shared.
-7. Integrar roteamento, estados de carregamento e dados reais.
+2. Implementar o shell principal com barra no topo, barra inferior e regiao central de roteamento.
+3. Implementar os componentes shared mais simples: barra no topo e data.
+4. Implementar carousel com dados mockados e fallback visual.
+5. Implementar secao de servicos e card de servico.
+6. Implementar artefatos compartilhados de perfil e notificacoes para alimentar header e navegacao.
+7. Implementar a feature Home compondo apenas o conteudo central.
+8. Integrar roteamento, estados de carregamento e dados reais.
 
 ## Responsabilidades por camada
 
@@ -63,7 +69,7 @@ Organizar a implementacao dos documentos SDD em uma estrutura coerente com o pro
   - evitar regra de orquestracao da tela completa
 
 - Feature
-  - controlar composicao da Home
+  - controlar composicao do conteudo central da Home
   - coordenar carregamento dos dados da pagina
   - decidir ordem visual, fallback e navegacao entre blocos
 

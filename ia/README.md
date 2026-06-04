@@ -52,6 +52,7 @@ A base desta especificacao considera a interface mostrada na imagem enviada, com
 - Os documentos 01 a 06 representam componentes reutilizaveis e devem ser implementados em uma pasta shared.
 - O documento 07 representa a composicao da tela Home e deve ser implementado em uma pasta feature.
 - A Home deve consumir os componentes shared sem duplicar responsabilidades visuais ou de estado.
+- A disposicao principal do app deve usar um shell de layout com barra no topo fixa, barra no footer fixa e `router-outlet` central para carregar o destino de cada link.
 - O plano detalhado de entrega esta em [08-plano-implementacao.md](./08-plano-implementacao.md).
 
 ## Referencia visual oficial

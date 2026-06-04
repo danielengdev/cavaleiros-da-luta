@@ -1,7 +1,5 @@
-import { NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit, inject, signal } from '@angular/core';
 import { LinksService } from '../service/links-service';
-import { HomeBottomNav } from '../../../shared/components/home-bottom-nav/home-bottom-nav';
 import { FeatureHeader } from '../../../shared/components/feature-header/feature-header';
 
 type LinkItem = {
@@ -13,7 +11,7 @@ type LinkItem = {
 
 @Component({
   selector: 'app-page',
-  imports: [NgOptimizedImage, FeatureHeader, HomeBottomNav],
+  imports: [FeatureHeader],
   templateUrl: './page.html',
   styleUrl: './page.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -21,7 +19,6 @@ type LinkItem = {
 export class Page implements OnInit {
   readonly links = signal<LinkItem[]>([]);
   readonly loading = signal<boolean>(false);
-  readonly logoDisponivel = signal<boolean>(true);
   private readonly linksService = inject(LinksService);
 
   ngOnInit(): void {
@@ -47,9 +44,5 @@ export class Page implements OnInit {
     } catch {
       return link;
     }
-  }
-
-  onLogoError(): void {
-    this.logoDisponivel.set(false);
   }
 }

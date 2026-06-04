@@ -13,8 +13,10 @@ import { ProfileAvatar } from '../profile-avatar/profile-avatar';
 export class TopBar {
   readonly greeting = input<string>('Ola,');
   readonly logoSrc = input<string>('/assets/img/cavaleiros-da-luta-logotipo.jpeg');
-  readonly userName = input.required<string>();
+  readonly userName = input<string>('');
   readonly avatarSrc = input<string>('');
+  readonly isAuthenticated = input<boolean>(false);
   readonly menuRoute = input<string>('/menu');
   readonly profileRoute = input<string>('/profile');
+  readonly loginRoute = input<string>('/login');
 }

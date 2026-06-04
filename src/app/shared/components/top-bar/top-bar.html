@@ -15,10 +15,28 @@
       height="20"
       alt="Cavaleiros da Luta"
     />
-    <h1 class="top-bar__name">{{ userName() }}</h1>
+
+    @if (isAuthenticated() && userName()) {
+      <h1 class="top-bar__name">{{ userName() }}</h1>
+    }
   </div>
 
-  <a class="top-bar__avatar-button" [routerLink]="profileRoute()" aria-label="Abrir perfil do usuario">
-    <app-profile-avatar [name]="userName()" [imageSrc]="avatarSrc()" />
+  <a
+    class="top-bar__avatar-button"
+    [routerLink]="isAuthenticated() ? profileRoute() : loginRoute()"
+    [attr.aria-label]="isAuthenticated() ? 'Abrir perfil do usuario' : 'Ir para a tela de login'"
+  >
+    @if (isAuthenticated() && userName()) {
+      <app-profile-avatar [name]="userName()" [imageSrc]="avatarSrc()" />
+    } @else {
+      <span class="top-bar__guest-avatar" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M12 12a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M5.5 19a6.5 6.5 0 0 1 13 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M16.5 12.5h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M18.5 10.5l2 2-2 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </span>
+    }
   </a>
 </header>

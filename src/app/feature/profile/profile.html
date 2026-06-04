@@ -2,14 +2,41 @@
   <div class="simple-screen__body">
     <app-feature-header
       title="Perfil"
-      description="Area inicial de perfil ligada a uma rota real para a Home."
+      description="Consulte os dados da conta autenticada e acompanhe o resumo do seu acesso."
     />
 
-    <article class="simple-screen__panel">
-      <h2 class="simple-screen__subtitle">Diego Maximino de Oliveira</h2>
-      <p class="simple-screen__text">Aqui entram os dados resumidos do usuario, configuracoes de conta e atalhos de cadastro.</p>
-    </article>
-  </div>
+    @if (isAuthenticated()) {
+      <section class="simple-screen__stack">
+        <article class="simple-screen__hero">
+          <app-profile-avatar [name]="displayName()" [imageSrc]="avatarUrl()" />
 
-  <app-home-bottom-nav activeItem="profile" />
+          <div class="simple-screen__hero-copy">
+            <p class="simple-screen__eyebrow">Conta autenticada</p>
+            <h2 class="simple-screen__subtitle">{{ displayName() }}</h2>
+            <p class="simple-screen__text">Seus dados abaixo refletem a sessao ativa no aplicativo.</p>
+          </div>
+        </article>
+
+        <article class="simple-screen__panel">
+          <h3 class="simple-screen__panel-title">Resumo da conta</h3>
+
+          <dl class="simple-screen__facts">
+            @for (fact of profileFacts(); track fact.label) {
+              <div class="simple-screen__fact-row">
+                <dt class="simple-screen__fact-label">{{ fact.label }}</dt>
+                <dd class="simple-screen__fact-value">{{ fact.value }}</dd>
+              </div>
+            }
+          </dl>
+        </article>
+      </section>
+    } @else {
+      <article class="simple-screen__panel simple-screen__panel--empty">
+        <p class="simple-screen__eyebrow simple-screen__eyebrow--muted">Sessao inativa</p>
+        <h2 class="simple-screen__subtitle">Nenhum usuario autenticado</h2>
+        <p class="simple-screen__text">Entre com sua conta para visualizar nome, email e demais dados do perfil.</p>
+        <a class="simple-screen__login-link" routerLink="/login">Ir para login</a>
+      </article>
+    }
+  </div>
 </section>

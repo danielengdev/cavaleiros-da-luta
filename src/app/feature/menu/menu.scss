@@ -1,7 +1,9 @@
 :host {
   display: block;
   min-height: 100vh;
-  background: #f5f6fb;
+  background:
+    radial-gradient(circle at top, rgba(49, 92, 194, 0.1), transparent 34%),
+    linear-gradient(180deg, #f5f6fb 0%, #eef2fb 100%);
   font-family: 'Trebuchet MS', 'Segoe UI Variable Text', 'Segoe UI', sans-serif;
 }
 
@@ -12,10 +14,11 @@
 }
 
 .simple-screen__body {
+  box-sizing: border-box;
   max-width: 44rem;
   width: 100%;
   margin: 0 auto;
-  padding: 1.25rem 1rem 6rem;
+  padding: 5.35rem 1rem 6rem;
 }
 
 .simple-screen__card-list {
@@ -24,12 +27,43 @@
 }
 
 .simple-screen__card {
-  display: block;
+  display: grid;
+  gap: 0.35rem;
   padding: 1rem 1.1rem;
   border-radius: 1rem;
   background: #ffffff;
+  border: 1px solid rgba(17, 26, 52, 0.05);
   box-shadow: 0 10px 24px rgba(17, 26, 52, 0.1);
   color: #111317;
   text-decoration: none;
-  font-weight: 700;
+  text-align: left;
+}
+
+.simple-screen__card-title {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
+}
+
+.simple-screen__card-text {
+  color: #5e6373;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.simple-screen__card--action {
+  border: 0;
+  cursor: pointer;
+  background: linear-gradient(135deg, #1f5bd6, #2f7cd9);
+  color: #ffffff;
+}
+
+.simple-screen__card--action .simple-screen__card-text {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+@media (max-width: 720px) {
+  .simple-screen__body {
+    padding: 5rem 1rem 6rem;
+  }
 }
