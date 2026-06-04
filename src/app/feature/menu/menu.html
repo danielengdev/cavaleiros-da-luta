@@ -3,18 +3,14 @@
     <app-feature-header title="Menu" description="Navegue pelas areas principais e acesse a autenticacao da plataforma." />
 
     <div class="simple-screen__card-list">
-      @for (item of menuItems; track item.route) {
+      @for (item of menuItems(); track item.route) {
         <a class="simple-screen__card" [routerLink]="item.route">
           <span class="simple-screen__card-title">{{ item.title }}</span>
-          <span class="simple-screen__card-text">{{ item.description }}</span>
         </a>
       }
 
       <button class="simple-screen__card simple-screen__card--action" type="button" (click)="handleAuthAction()">
         <span class="simple-screen__card-title">{{ isAuthenticated() ? 'Sair' : 'Logar' }}</span>
-        <span class="simple-screen__card-text">
-          {{ isAuthenticated() ? 'Encerrar a sessao atual e retornar para a tela de login.' : 'Entrar com uma conta para acessar a administracao e o perfil completo.' }}
-        </span>
       </button>
     </div>
   </div>

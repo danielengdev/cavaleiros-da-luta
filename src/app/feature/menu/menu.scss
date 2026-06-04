@@ -27,8 +27,7 @@
 }
 
 .simple-screen__card {
-  display: grid;
-  gap: 0.35rem;
+  display: block;
   padding: 1rem 1.1rem;
   border-radius: 1rem;
   background: #ffffff;
@@ -40,14 +39,9 @@
 }
 
 .simple-screen__card-title {
+  display: block;
   font-weight: 800;
   letter-spacing: -0.02em;
-  overflow-wrap: anywhere;
-}
-
-.simple-screen__card-text {
-  color: #5e6373;
-  line-height: 1.45;
   overflow-wrap: anywhere;
 }
 
@@ -56,10 +50,6 @@
   cursor: pointer;
   background: linear-gradient(135deg, #1f5bd6, #2f7cd9);
   color: #ffffff;
-}
-
-.simple-screen__card--action .simple-screen__card-text {
-  color: rgba(255, 255, 255, 0.82);
 }
 
 @media (max-width: 720px) {

@@ -19,23 +19,31 @@ export class Menu {
   readonly user = signal<User | null>(null);
   readonly isAuthenticated = computed(() => this.user() !== null);
 
-  readonly menuItems = [
-    {
-      title: 'Links',
-      description: 'Acesse a colecao central de links da plataforma.',
-      route: '/page',
-    },
-    {
-      title: 'Perfil',
-      description: 'Consulte os dados da conta autenticada.',
-      route: '/profile',
-    },
-    {
-      title: 'Notificacoes',
-      description: 'Acompanhe avisos e atualizacoes recentes.',
-      route: '/notifications',
-    },
-  ];
+  readonly menuItems = computed(() => {
+    const items = [
+      {
+        title: 'Links',
+        route: '/page',
+      },
+      {
+        title: 'Perfil',
+        route: '/profile',
+      },
+      {
+        title: 'Notificacoes',
+        route: '/notifications',
+      },
+    ];
+
+    if (this.isAuthenticated()) {
+      items.push({
+        title: 'Dashboard',
+        route: '/dashboard',
+      });
+    }
+
+    return items;
+  });
 
   constructor() {
     void this.syncUser();
